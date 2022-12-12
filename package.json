@@ -26,5 +26,10 @@
     "husky": "^8.0.2",
     "postcss": "^8.4.20",
     "tailwindcss": "^3.2.4"
+  },
+  "nextBundleAnalysis": {
+    "budget": null,
+    "budgetPercentIncreaseRed": 20,
+    "showDetails": true
   }
 }
