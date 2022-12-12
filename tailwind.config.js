@@ -5,5 +5,14 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [require("windy-radix-palette")],
+  plugins: [
+    require("windy-radix-palette")({
+      colors: {
+        mauveA: radixColors.mauveA,
+        mauveDarkA: radixColors.mauveDarkA,
+        red: radixColors.red,
+        redDark: radixColors.redDark,
+      },
+    }),
+  ],
 };
