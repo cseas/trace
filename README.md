@@ -2,7 +2,7 @@
 
 React clone of Hypertrace
 
-## Getting Started
+## Getting started
 
 Run the development server:
 
@@ -12,7 +12,7 @@ npm run dev
 
 Open [http://localhost:4201](http://localhost:4201) with your browser to see the result.
 
-## Versions
+## Software versions
 
 | Name | Versions |
 | ---- | -------- |
