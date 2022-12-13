@@ -10,10 +10,8 @@ module.exports = {
   plugins: [
     require("windy-radix-palette")({
       colors: {
-        mauveA: radixColors.mauveA,
-        mauveDarkA: radixColors.mauveDarkA,
-        red: radixColors.red,
-        redDark: radixColors.redDark,
+        mauve: radixColors.mauve,
+        mauveDark: radixColors.mauveDark,
       },
     }),
   ],
