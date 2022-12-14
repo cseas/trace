@@ -14,8 +14,8 @@ export default function Services() {
 
   return (
     <>
-      {data?.results.map((service) => (
-        <p key="service.id">{service.name}</p>
+      {data?.results.map((service, index) => (
+        <p key={index}>{service.name}</p>
       ))}
       <pre className="text-sm text-mauve-12">
         {JSON.stringify(data, null, 4)}
