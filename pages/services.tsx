@@ -1,48 +1,25 @@
-import { request, gql } from "graphql-request";
+import { request } from "graphql-request";
 import { useQuery } from "@tanstack/react-query";
-
-interface ServicesQuery {
-  metadata: {
-    name: string;
-    displayName: string;
-    type: string;
-    scope: string;
-    units: string;
-    onlySupportsAggregation: boolean;
-    onlySupportsGrouping: boolean;
-    supportedAggregations: string[];
-    groupable: boolean;
-    __typename: string;
-  }[];
-}
-
-const servicesQuery = gql`
-  {
-    metadata {
-      name
-      displayName
-      type
-      scope
-      units
-      onlySupportsAggregation
-      onlySupportsGrouping
-      supportedAggregations
-      groupable
-      __typename
-    }
-  }
-`;
+import { entitiesQuery } from "../src/Services/entities.query";
+import type { EntitiesQuery } from "../src/Services/entities.query";
 
 export default function Services() {
-  const { data } = useQuery<ServicesQuery>(["services"], async () => {
-    const { metadata } = await request(
+  const { data } = useQuery<EntitiesQuery>(["entities"], async () => {
+    const { entities } = await request(
       process.env.NEXT_PUBLIC_GRAPHQL!,
-      servicesQuery
+      entitiesQuery
     );
-    return metadata;
+    return entities;
   });
 
   return (
-    <pre className="text-sm text-mauve-12">{JSON.stringify(data, null, 4)}</pre>
+    <>
+      {data?.results.map((service, index) => (
+        <p key={index}>{service.name}</p>
+      ))}
+      <pre className="text-sm text-mauve-12">
+        {JSON.stringify(data, null, 4)}
+      </pre>
+    </>
   );
 }
